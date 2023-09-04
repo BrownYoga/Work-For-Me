@@ -7,7 +7,7 @@ class ClientRegLog extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Client Registration/Login'),
+        title: const Text('Client Area'),
       ),
       body: Center(
         child: Column(

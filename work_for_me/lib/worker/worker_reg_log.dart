@@ -7,7 +7,7 @@ class WorkerRegLog extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Worker Registration/Login'),
+        title: const Text('Worker Area'),
       ),
       body: Center(
         child: Column(

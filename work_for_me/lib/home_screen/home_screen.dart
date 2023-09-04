@@ -39,7 +39,7 @@ class HomeScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.pushNamed(context, '/client_reg_log');
                   },
-                  child: const Text('I am a Worker'),
+                  child: const Text('I am a Client'),
                 ),
               ],
             ),
