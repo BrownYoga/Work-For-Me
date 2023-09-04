@@ -52,7 +52,7 @@ class _ClientLoginState extends State<ClientLogin> {
             onPressed: () {
               Navigator.pushNamed(context, '/client_reg_log');
             },
-            child: const Text('Go to Registration'),
+            child: const Text('Go to Client Area'),
           ),
         ],
       ),
