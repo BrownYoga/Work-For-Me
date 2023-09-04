@@ -15,7 +15,7 @@ class WorkerRegLog extends StatelessWidget {
           children: [
             // Logo can go here
             const Icon(
-              Icons.business,
+              Icons.work,
               size: 100,
             ),
             const SizedBox(height: 30),
