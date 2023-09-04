@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({Key? key}) : super(key: key);  // Added const and key parameter
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +10,7 @@ class HomeScreen extends StatelessWidget {
         title: const Text('Home Screen'),
       ),
       body: const Center(
-        child: Text('Welcome to the Home Screen!'),
+        child: Text('Welcome to WFM!'),
       ),
     );
   }
