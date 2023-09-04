@@ -28,7 +28,7 @@ class ClientRegLog extends StatelessWidget {
             const SizedBox(height: 15),
             ElevatedButton(
               onPressed: () {
-                // Navigate to Client Registration
+                Navigator.pushNamed(context, '/client_registration');
               },
               child: const Text('Client Registration'),
             ),
