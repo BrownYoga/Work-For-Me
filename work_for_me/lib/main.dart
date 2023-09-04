@@ -5,6 +5,7 @@ import 'package:work_for_me/worker/worker_reg_log.dart';  // Import the worker r
 import 'package:work_for_me/client/client_reg_log.dart';  // Import the client registration and login screen
 import 'package:work_for_me/client/client_login.dart';  // Import for ClientLogin
 import 'package:work_for_me/worker/worker_login.dart';
+import 'package:work_for_me/worker/worker_registration.dart';
 import 'client/client_registration.dart';  
 
 void main() {
@@ -26,6 +27,8 @@ class MyApp extends StatelessWidget {
         '/client_login': (context) => const ClientLogin(),  // New route for ClientLogin
         '/worker_login': (context) => const WorkerLogin(),
         '/client_registration': (context) => const ClientRegistration(),
+        '/worker_registration': (context) => const WorkerRegistration(),
+
       },
     );
   }

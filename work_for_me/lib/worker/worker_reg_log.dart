@@ -29,7 +29,7 @@ class WorkerRegLog extends StatelessWidget {
             const SizedBox(height: 15),
             ElevatedButton(
               onPressed: () {
-                // Navigate to Worker Registration
+                Navigator.pushNamed(context, '/worker_registration');
               },
               child: const Text('Worker Registration'),
             ),
