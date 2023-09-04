@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:work_for_me/spalsh_screen/splashscreen.dart';  // Import the splash screen
+import 'package:work_for_me/spalsh_screen/splashscreen.dart'; // Import the splash screen
 import 'package:work_for_me/home_screen/home_screen.dart';  // Import the home screen
+import 'package:work_for_me/worker/worker_reg_log.dart';  // Import the worker registration and login screen
+import 'package:work_for_me/client/client_reg_log.dart';  // Import the client registration and login screen
 
 void main() {
   runApp(const MyApp());  // Added const here
@@ -12,9 +14,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      initialRoute: '/',
       routes: {
         '/': (context) => const SplashScreen(),  // Added const here
         '/home': (context) => const HomeScreen(),  // Added const here
+        '/worker_reg_log': (context) => const WorkerRegLog(), // Worker Registration and Login
+        '/client_reg_log': (context) => const ClientRegLog(), // Client Registration and Login
       },
     );
   }

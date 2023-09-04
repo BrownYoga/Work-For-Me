@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class WorkerRegLog extends StatelessWidget {
-  const WorkerRegLog({Key? key}) : super(key: key);
+class ClientRegLog extends StatelessWidget {
+  const ClientRegLog({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Worker Registration/Login'),
+        title: const Text('Client Registration/Login'),
       ),
       body: Center(
         child: Column(
@@ -21,16 +21,16 @@ class WorkerRegLog extends StatelessWidget {
             const SizedBox(height: 30),
             ElevatedButton(
               onPressed: () {
-                // Navigate to Worker Login
+                // Navigate to Client Login
               },
-              child: const Text('Worker Login'),
+              child: const Text('Client Login'),
             ),
             const SizedBox(height: 15),
             ElevatedButton(
               onPressed: () {
-                // Navigate to Worker Registration
+                // Navigate to Client Registration
               },
-              child: const Text('Worker Registration'),
+              child: const Text('Client Registration'),
             ),
           ],
         ),
