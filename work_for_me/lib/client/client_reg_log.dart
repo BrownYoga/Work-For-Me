@@ -23,7 +23,7 @@ class ClientRegLog extends StatelessWidget {
               onPressed: () {
                 Navigator.pushNamed(context, '/client_login');
               },
-              child: const Text('Client Registration'),
+              child: const Text('Client Login'),
             ),
             const SizedBox(height: 15),
             ElevatedButton(
