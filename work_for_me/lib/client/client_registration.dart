@@ -76,14 +76,16 @@ class _ClientRegistrationState extends State<ClientRegistration> {
                     // },
                   ),
                 ),
-                TextButton(
-                  onPressed: () {
-                    setState(() {
-                      _obscureText = !_obscureText;
-                    });
-                  },
-                  child: Text(_obscureText ? "Show" : "Hide"),
-                ),
+                IconButton(
+                icon: Icon(_obscureText
+                    ? Icons.visibility_off
+                    : Icons.visibility),
+                onPressed: () {
+                  setState(() {
+                    _obscureText = !_obscureText;
+                  });
+                },
+              ),
               ],
             ),
             ElevatedButton(
