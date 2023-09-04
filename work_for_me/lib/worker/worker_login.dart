@@ -52,7 +52,7 @@ class _WorkerLoginState extends State<WorkerLogin> {
             onPressed: () {
               Navigator.pushNamed(context, '/worker_reg_log');
             },
-            child: const Text('Go to Registration'),
+            child: const Text('Go to Worker Area'),
           ),
         ],
       ),
