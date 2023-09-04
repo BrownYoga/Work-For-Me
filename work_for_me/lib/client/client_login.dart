@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 
 class ClientLogin extends StatefulWidget {
@@ -19,19 +21,32 @@ class _ClientLoginState extends State<ClientLogin> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          TextField(
-            obscureText: !showPassword,
-            decoration: const InputDecoration(
-              labelText: 'Password',
+          const TextField(
+            decoration: InputDecoration(
+              labelText: 'Username',
             ),
           ),
-          ElevatedButton(
-            onPressed: () {
-              setState(() {
-                showPassword = !showPassword;
-              });
-            },
-            child: Text(showPassword ? 'Hide Password' : 'Show Password'),
+          Row(
+            children: [
+              Expanded(
+                child: TextField(
+                  obscureText: !showPassword,
+                  decoration: const InputDecoration(
+                    labelText: 'Password',
+                  ),
+                ),
+              ),
+              IconButton(
+                icon: Icon(showPassword
+                    ? Icons.visibility_off
+                    : Icons.visibility),
+                onPressed: () {
+                  setState(() {
+                    showPassword = !showPassword;
+                  });
+                },
+              ),
+            ],
           ),
           ElevatedButton(
             onPressed: () {
