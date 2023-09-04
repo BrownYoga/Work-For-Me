@@ -30,14 +30,14 @@ class _SplashScreenState extends State<SplashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: const [
             Text(
-              'WFM',
+              'Work For Me',
               style: TextStyle(
                 fontSize: 50.0,
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
               ),
             ),
-            SizedBox(height: 20.0),  // Add some spacing
+            SizedBox(height: 0.0),  // Add some spacing
             SpinKitCubeGrid(  // Add the spinner
               color: Colors.white,
               size: 50.0,
