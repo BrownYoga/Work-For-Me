@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'lib\worker\worker_reg_log.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -30,8 +31,13 @@ class HomeScreen extends StatelessWidget {
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    // Navigate to the worker screen
+                      Navigator.push(
+                      context,
+                  MaterialPageRoute(builder: (context) => const WorkerRegLogScreen()),
+                      );
                   },
+                  child: const Text('I am a worker'),
+                ),
                   child: const Text('I am a worker'),
                 ),
                 const SizedBox(height: 20),
