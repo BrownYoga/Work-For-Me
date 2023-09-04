@@ -4,7 +4,7 @@ import 'package:work_for_me/home_screen/home_screen.dart';
 
 void main() {
   group('Home Screen Tests', () {
-    testWidgets('Navigates to WorkerRegLog when "I am a worker" is tapped',
+    testWidgets('Navigates to WorkerRegLog when "I am a Worker" is tapped',
         (WidgetTester tester) async {
       await tester.pumpWidget(
         MaterialApp(
@@ -16,13 +16,13 @@ void main() {
         ),
       );
 
-      await tester.tap(find.text('I am a worker'));
+      await tester.tap(find.text('I am a Worker'));
       await tester.pumpAndSettle();
 
       expect(find.text('Mock WorkerRegLog screen'), findsOneWidget);
     });
 
-    testWidgets('Navigates to ClientRegLog when "I am a client" is tapped',
+    testWidgets('Navigates to ClientRegLog when "I am a Client" is tapped',
         (WidgetTester tester) async {
       await tester.pumpWidget(
         MaterialApp(
@@ -34,7 +34,7 @@ void main() {
         ),
       );
 
-      await tester.tap(find.text('I am a client'));
+      await tester.tap(find.text('I am a Client'));
       await tester.pumpAndSettle();
 
       expect(find.text('Mock ClientRegLog screen'), findsOneWidget);
