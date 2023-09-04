@@ -1,7 +1,16 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 
-class WorkerLogin extends StatelessWidget {
+class WorkerLogin extends StatefulWidget {
   const WorkerLogin({Key? key}) : super(key: key);
+
+  @override
+  _WorkerLoginState createState() => _WorkerLoginState();
+}
+
+class _WorkerLoginState extends State<WorkerLogin> {
+  bool showPassword = false;
 
   @override
   Widget build(BuildContext context) {
@@ -13,17 +22,37 @@ class WorkerLogin extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const TextField(
-            decoration: InputDecoration(labelText: 'Username'),
+            decoration: InputDecoration(
+              labelText: 'Username',
+            ),
           ),
-          const TextField(
-            decoration: InputDecoration(labelText: 'Password'),
-            obscureText: true,
+          Row(
+            children: [
+              Expanded(
+                child: TextField(
+                  obscureText: !showPassword,
+                  decoration: const InputDecoration(
+                    labelText: 'Password',
+                  ),
+                ),
+              ),
+              IconButton(
+                icon: Icon(showPassword
+                    ? Icons.visibility_off
+                    : Icons.visibility),
+                onPressed: () {
+                  setState(() {
+                    showPassword = !showPassword;
+                  });
+                },
+              ),
+            ],
           ),
           ElevatedButton(
             onPressed: () {
-              Navigator.pop(context);
+              Navigator.pushNamed(context, '/worker_reg_log');
             },
-            child: const Text('Back to Registration/Login Page'),
+            child: const Text('Go to Registration'),
           ),
         ],
       ),
