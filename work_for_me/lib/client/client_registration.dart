@@ -46,21 +46,21 @@ class _ClientRegistrationState extends State<ClientRegistration> {
             ),
             TextFormField(
               decoration: const InputDecoration(labelText: 'Username'),
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Please enter a username';
-                }
-                return null;
-              },
+              // validator: (value) {
+              //   if (value == null || value.isEmpty) {
+              //     return 'Please enter a username';
+              //   }
+              //   return null;
+              // },
             ),
             TextFormField(
               decoration: const InputDecoration(labelText: 'Email'),
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Please enter an email';
-                }
-                return null;
-              },
+              // validator: (value) {
+              //   if (value == null || value.isEmpty) {
+              //     return 'Please enter an email';
+              //   }
+              //   return null;
+              // },
             ),
             Row(
               children: [
@@ -68,12 +68,12 @@ class _ClientRegistrationState extends State<ClientRegistration> {
                   child: TextFormField(
                     decoration: const InputDecoration(labelText: 'Password'),
                     obscureText: _obscureText,
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter a password';
-                      }
-                      return null;
-                    },
+                    // validator: (value) {
+                    //   if (value == null || value.isEmpty) {
+                    //     return 'Please enter a password';
+                    //   }
+                    //   return null;
+                    // },
                   ),
                 ),
                 TextButton(
