@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
-class ClientLogin extends StatelessWidget {
+class ClientLogin extends StatefulWidget {
   const ClientLogin({Key? key}) : super(key: key);
+
+  @override
+  _ClientLoginState createState() => _ClientLoginState();
+}
+
+class _ClientLoginState extends State<ClientLogin> {
+  bool showPassword = false;
 
   @override
   Widget build(BuildContext context) {
@@ -12,18 +19,25 @@ class ClientLogin extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const TextField(
-            decoration: InputDecoration(labelText: 'Username'),
-          ),
-          const TextField(
-            decoration: InputDecoration(labelText: 'Password'),
-            obscureText: true,
+          TextField(
+            obscureText: !showPassword,
+            decoration: const InputDecoration(
+              labelText: 'Password',
+            ),
           ),
           ElevatedButton(
             onPressed: () {
-              Navigator.pop(context);
+              setState(() {
+                showPassword = !showPassword;
+              });
             },
-            child: const Text('Back to Registration/Login Page'),
+            child: Text(showPassword ? 'Hide Password' : 'Show Password'),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/client_reg_log');
+            },
+            child: const Text('Go to Registration'),
           ),
         ],
       ),
