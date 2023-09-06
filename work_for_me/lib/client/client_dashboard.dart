@@ -20,25 +20,25 @@ class ClientDashboard extends StatelessWidget {
             // Reordered Buttons Here
             ElevatedButton(
               onPressed: () {
-                // TODO: Implement profile functionality
+                // Implement profile functionality
               },
               child: const Text('Profile'),
             ),
             ElevatedButton(
               onPressed: () {
-                // TODO: Implement find a worker functionality
+                // Implement find a worker functionality
               },
               child: const Text('Find a Worker'),
             ),
             ElevatedButton(
               onPressed: () {
-                // TODO: Implement active orders functionality
+                // Implement active orders functionality
               },
               child: const Text('Active Orders'),
             ),
             ElevatedButton(
               onPressed: () {
-                // TODO: Implement view outstanding payments functionality
+                // Implement view outstanding payments functionality
               },
               child: const Text('View Outstanding Payments'),
             ),
