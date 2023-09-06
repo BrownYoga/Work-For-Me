@@ -69,7 +69,7 @@ class WorkerDashboard extends StatelessWidget {
                   // Replace with logic to display half-stars if needed
                 }),
               ),
-              const Text('Rated by 150 workers',
+              const Text('Rated by 150 clients',
                 style: TextStyle(fontSize: 12, color: Colors.grey),
               ),
             ],
