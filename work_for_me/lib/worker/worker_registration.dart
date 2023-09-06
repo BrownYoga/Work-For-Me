@@ -77,22 +77,21 @@ class _WorkerRegistrationState extends State<WorkerRegistration> {
                   ),
                 ),
                 IconButton(
-                icon: Icon(_obscureText
-                    ? Icons.visibility_off
-                    : Icons.visibility),
-                onPressed: () {
-                  setState(() {
-                    _obscureText = !_obscureText;
-                  });
-                },
-              ),
+                  icon: Icon(
+                      _obscureText ? Icons.visibility_off : Icons.visibility),
+                  onPressed: () {
+                    setState(() {
+                      _obscureText = !_obscureText;
+                    });
+                  },
+                ),
               ],
             ),
             ElevatedButton(
               onPressed: () {
                 if (_formKey.currentState!.validate()) {
                   // Process registration
-                  Navigator.pop(context);
+                  Navigator.pushNamed(context, '/worker_login');
                 }
               },
               child: const Text('Register'),
