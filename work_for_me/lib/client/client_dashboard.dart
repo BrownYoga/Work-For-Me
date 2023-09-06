@@ -24,10 +24,9 @@ class ClientDashboard extends StatelessWidget {
               },
               child: const Text('Profile'),
             ),
-
             ElevatedButton(
               onPressed: () {
-                // Implement find a worker functionality
+                Navigator.pushNamed(context, '/client_find_a_worker');
               },
               child: const Text('Find a Worker'),
             ),

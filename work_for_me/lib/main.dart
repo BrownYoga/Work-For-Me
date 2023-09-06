@@ -9,6 +9,7 @@ import 'package:work_for_me/worker/worker_registration.dart';
 import 'client/client_registration.dart';
 import 'package:work_for_me/client/client_dashboard.dart';
 import 'package:work_for_me/client/client_profile.dart';
+import 'package:work_for_me/client/client_find_a_worker.dart';
 import 'package:work_for_me/worker/worker_dashboard.dart';
 
 void main() {
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
         '/client_dashboard': (context) => const ClientDashboard(),
         '/worker_dashboard': (context) => const WorkerDashboard(),
         '/client_profile': (context) => const ClientProfile(),
-
+        '/client_find_a_worker': (context) => const ClientFindAWorker(),
       },
     );
   }
