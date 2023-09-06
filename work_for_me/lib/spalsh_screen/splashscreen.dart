@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'package:flutter_spinkit/flutter_spinkit.dart';  // Import the flutter_spinkit package
+import 'package:flutter_spinkit/flutter_spinkit.dart'; // Import the flutter_spinkit package
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -15,20 +15,18 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(
-        const Duration(seconds: 15),
-        () => Navigator.pushReplacementNamed(
-            context, '/home'));
+    Timer(const Duration(seconds: 3),
+        () => Navigator.pushReplacementNamed(context, '/home'));
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       backgroundColor: Colors.blue,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
+          children: [
             Text(
               'Work For Me',
               style: TextStyle(
@@ -37,8 +35,9 @@ class _SplashScreenState extends State<SplashScreen> {
                 color: Colors.white,
               ),
             ),
-            SizedBox(height: 0.0),  // Add some spacing
-            SpinKitCubeGrid(  // Add the spinner
+            SizedBox(height: 0.0), // Add some spacing
+            SpinKitCubeGrid(
+              // Add the spinner
               color: Colors.white,
               size: 50.0,
             ),

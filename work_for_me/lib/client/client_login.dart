@@ -37,9 +37,8 @@ class _ClientLoginState extends State<ClientLogin> {
                 ),
               ),
               IconButton(
-                icon: Icon(showPassword
-                    ? Icons.visibility_off
-                    : Icons.visibility),
+                icon: Icon(
+                    showPassword ? Icons.visibility_off : Icons.visibility),
                 onPressed: () {
                   setState(() {
                     showPassword = !showPassword;
@@ -50,9 +49,9 @@ class _ClientLoginState extends State<ClientLogin> {
           ),
           ElevatedButton(
             onPressed: () {
-              Navigator.pushNamed(context, '/client_reg_log');
+              Navigator.pushNamed(context, '/client_dashboard');
             },
-            child: const Text('Go to Client Area'),
+            child: const Text('Go to Client Dashboard'),
           ),
         ],
       ),
