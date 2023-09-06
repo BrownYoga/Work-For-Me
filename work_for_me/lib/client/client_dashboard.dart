@@ -20,10 +20,11 @@ class ClientDashboard extends StatelessWidget {
             // Reordered Buttons Here
             ElevatedButton(
               onPressed: () {
-                // Implement profile functionality
+                Navigator.pushNamed(context, '/client_profile');
               },
               child: const Text('Profile'),
             ),
+
             ElevatedButton(
               onPressed: () {
                 // Implement find a worker functionality

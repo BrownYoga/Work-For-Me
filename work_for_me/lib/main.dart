@@ -8,6 +8,7 @@ import 'package:work_for_me/worker/worker_login.dart';
 import 'package:work_for_me/worker/worker_registration.dart';
 import 'client/client_registration.dart';
 import 'package:work_for_me/client/client_dashboard.dart';
+import 'package:work_for_me/client/client_profile.dart';
 import 'package:work_for_me/worker/worker_dashboard.dart';
 
 void main() {
@@ -24,17 +25,16 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const SplashScreen(), // Added const here
         '/home': (context) => const HomeScreen(), // Added const here
-        '/worker_reg_log': (context) =>
-            const WorkerRegLog(), // Worker Registration and Login
-        '/client_reg_log': (context) =>
-            const ClientRegLog(), // Client Registration and Login
-        '/client_login': (context) =>
-            const ClientLogin(), // New route for ClientLogin
+        '/worker_reg_log': (context) => const WorkerRegLog(), // Worker Registration and Login
+        '/client_reg_log': (context) => const ClientRegLog(), // Client Registration and Login
+        '/client_login': (context) => const ClientLogin(), // New route for ClientLogin
         '/worker_login': (context) => const WorkerLogin(),
         '/client_registration': (context) => const ClientRegistration(),
         '/worker_registration': (context) => const WorkerRegistration(),
         '/client_dashboard': (context) => const ClientDashboard(),
         '/worker_dashboard': (context) => const WorkerDashboard(),
+        '/client_profile': (context) => const ClientProfile(),
+
       },
     );
   }
