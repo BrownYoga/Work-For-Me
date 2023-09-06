@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:flutter_spinkit/flutter_spinkit.dart'; // Import the flutter_spinkit package
