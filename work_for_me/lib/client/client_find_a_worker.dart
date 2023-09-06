@@ -10,7 +10,7 @@ class ClientFindAWorker extends StatefulWidget {
 }
 
 class _ClientFindAWorkerState extends State<ClientFindAWorker> {
-  String? dropdownValue;  // Changed from String to String?
+  String? dropdownValue; // Changed from String to String?
 
   @override
   Widget build(BuildContext context) {
@@ -31,11 +31,18 @@ class _ClientFindAWorkerState extends State<ClientFindAWorker> {
                   dropdownValue = newValue;
                 });
               },
-              items: <String?>['Painter', 'Plumber', 'Builder', 'Electrician', null]  // Added null
+              items: <String?>[
+                'Painter',
+                'Plumber',
+                'Builder',
+                'Electrician',
+                null
+              ] // Added null
                   .map<DropdownMenuItem<String?>>((String? value) {
                 return DropdownMenuItem<String?>(
                   value: value,
-                  child: Text(value ?? "Filter by Category"),  // If value is null, show "Filter by Category"
+                  child: Text(value ??
+                      "Filter by Category"), // If value is null, show "Filter by Category"
                 );
               }).toList(),
             ),
@@ -43,17 +50,23 @@ class _ClientFindAWorkerState extends State<ClientFindAWorker> {
             Expanded(
               child: GridView.count(
                 crossAxisCount: 2,
+                childAspectRatio: 10,  // Adjust this value to make tiles smaller or larger
                 children: [
-                  if (dropdownValue == null || dropdownValue == 'Painter') _buildCategoryTile('Painter', Icons.brush),
-                  if (dropdownValue == null || dropdownValue == 'Plumber') _buildCategoryTile('Plumber', Icons.build),
-                  if (dropdownValue == null || dropdownValue == 'Builder') _buildCategoryTile('Builder', Icons.construction),
-                  if (dropdownValue == null || dropdownValue == 'Electrician') _buildCategoryTile('Electrician', Icons.electrical_services),
+                  if (dropdownValue == null || dropdownValue == 'Painter')
+                    _buildCategoryTile('Painter', Icons.brush),
+                  if (dropdownValue == null || dropdownValue == 'Plumber')
+                    _buildCategoryTile('Plumber', Icons.build),
+                  if (dropdownValue == null || dropdownValue == 'Builder')
+                    _buildCategoryTile('Builder', Icons.construction),
+                  if (dropdownValue == null || dropdownValue == 'Electrician')
+                    _buildCategoryTile(
+                        'Electrician', Icons.electrical_services),
                 ],
               ),
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.pop(context);  // Navigate back to dashboard
+                Navigator.pop(context); // Navigate back to dashboard
               },
               child: const Text('Back to Dashboard'),
             ),
@@ -72,7 +85,7 @@ class _ClientFindAWorkerState extends State<ClientFindAWorker> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(iconData, size: 30),  // Reduced the size
+            Icon(iconData, size: 30), // Reduced the size
             const SizedBox(height: 4),
             Text(title),
           ],
