@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:logger/logger.dart';
+
+var logger = Logger();
 
 class ClientDashboard extends StatelessWidget {
   const ClientDashboard({Key? key}) : super(key: key);
@@ -61,7 +64,7 @@ class ClientDashboard extends StatelessWidget {
               color: Colors.amber,
             ),
             onRatingUpdate: (rating) {
-              print(rating);
+              logger.i('Rating changed to: $rating');  // Using logger here
             },
           ),
           const Text(
