@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:logger/logger.dart';
+
+var logger = Logger();
 
 class WorkerDashboard extends StatelessWidget {
   const WorkerDashboard({Key? key}) : super(key: key);
@@ -9,72 +13,67 @@ class WorkerDashboard extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Worker Dashboard'),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          // Buttons at the top
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            // Buttons Here
+            ElevatedButton(
+              onPressed: () {
+                // Implement My Profile functionality
+              },
+              child: const Text('My Profile'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                // Implement View Orders functionality
+              },
+              child: const Text('View Orders'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                // Implement Payments functionality
+              },
+              child: const Text('Payments'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/home');
+              },
+              child: const Text('Logout'),
+            ),
+
+            // Your Rating Bar
+            Column(
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      // Navigate to My Profile
-                    },
-                    child: const Text('My Profile'),
-                  ),
+                const Text(
+                  'Your Rating',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      // Navigate to View Orders
-                    },
-                    child: const Text('View Orders'),
+                const SizedBox(height: 10), // Adjust the space
+                RatingBar.builder(
+                  initialRating: 4.5,
+                  minRating: 1,
+                  itemSize: 30,
+                  allowHalfRating: true,
+                  itemCount: 5,
+                  itemBuilder: (context, _) => const Icon(
+                    Icons.star,
+                    color: Colors.amber,
                   ),
+                  onRatingUpdate: (rating) {
+                    logger.i('Rating changed to: $rating'); // Using logger here
+                  },
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      // Navigate to Payments
-                    },
-                    child: const Text('Payments'),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.popUntil(context, ModalRoute.withName('/home'));
-                    },
-                    child: const Text('Logout'),
-                  ),
+                const SizedBox(height: 10), // Adjust the space
+                const Text(
+                  'Rated by 150 workers',
+                  style: TextStyle(fontSize: 12, fontStyle: FontStyle.italic),
                 ),
               ],
             ),
-          ),
-          // Rating at the bottom
-          Column(
-            children: [
-              const Text('Your Rating',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: List.generate(5, (index) {
-                  return const Icon(Icons.star, color: Colors.yellow);
-                  // Replace with logic to display half-stars if needed
-                }),
-              ),
-              const Text('Rated by 150 clients',
-                style: TextStyle(fontSize: 12, color: Colors.grey),
-              ),
-            ],
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
