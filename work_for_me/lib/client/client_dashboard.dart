@@ -32,7 +32,7 @@ class ClientDashboard extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                // Implement active orders functionality
+                Navigator.pushNamed(context, '/client_active_orders');
               },
               child: const Text('Active Orders'),
             ),
