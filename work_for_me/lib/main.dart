@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:work_for_me/spalsh_screen/splashscreen.dart'; // Import the splash screen
 import 'package:work_for_me/home_screen/home_screen.dart'; // Import the home screen
 import 'package:work_for_me/worker/worker_reg_log.dart'; // Import the worker registration and login screen
-import 'package:work_for_me/client/client_reg_log.dart'; // Import the client registration and login screen
-import 'package:work_for_me/client/client_login.dart'; // Import for ClientLogin
+import 'package:work_for_me/client/views/client_reg_log.dart'; // Import the client registration and login screen
+import 'package:work_for_me/client/views/client_login.dart'; // Import for ClientLogin
 import 'package:work_for_me/worker/worker_login.dart';
 import 'package:work_for_me/worker/worker_registration.dart';
-import 'client/client_registration.dart';
+import 'client/views/client_registration.dart';
 import 'package:work_for_me/client/views/client_dashboard.dart';
-import 'package:work_for_me/client/client_profile.dart';
-import 'package:work_for_me/client/client_find_a_worker.dart';
+import 'package:work_for_me/client/views/client_profile.dart';
+import 'package:work_for_me/client/views/client_find_a_worker.dart';
 import 'package:work_for_me/worker/views/worker_dashboard.dart';
-import 'package:work_for_me/client/client_active_orders.dart';
+import 'package:work_for_me/client/views/client_active_orders.dart';
 import 'package:provider/provider.dart';
 import 'package:work_for_me/client/viewmodels/client_dashboard_viewmodel.dart';
 
