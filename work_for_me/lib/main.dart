@@ -7,10 +7,10 @@ import 'package:work_for_me/client/client_login.dart'; // Import for ClientLogin
 import 'package:work_for_me/worker/worker_login.dart';
 import 'package:work_for_me/worker/worker_registration.dart';
 import 'client/client_registration.dart';
-import 'package:work_for_me/client/client_dashboard.dart';
+import 'package:work_for_me/client/views/client_dashboard.dart';
 import 'package:work_for_me/client/client_profile.dart';
 import 'package:work_for_me/client/client_find_a_worker.dart';
-import 'package:work_for_me/worker/worker_dashboard.dart';
+import 'package:work_for_me/worker/views/worker_dashboard.dart';
 import 'package:work_for_me/client/client_active_orders.dart';
 
 void main() {
