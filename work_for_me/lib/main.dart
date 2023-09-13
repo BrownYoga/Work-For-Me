@@ -12,33 +12,38 @@ import 'package:work_for_me/client/client_profile.dart';
 import 'package:work_for_me/client/client_find_a_worker.dart';
 import 'package:work_for_me/worker/views/worker_dashboard.dart';
 import 'package:work_for_me/client/client_active_orders.dart';
+import 'package:provider/provider.dart';
+import 'package:work_for_me/client/viewmodels/client_dashboard_viewmodel.dart';
 
-void main() {
-  runApp(const MyApp()); // Added const here
-}
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key); // Added const and key parameter
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      initialRoute: '/',
-      routes: {
-        '/': (context) => const SplashScreen(), // Added const here
-        '/home': (context) => const HomeScreen(), // Added const here
-        '/worker_reg_log': (context) => const WorkerRegLog(), // Worker Registration and Login
-        '/client_reg_log': (context) => const ClientRegLog(), // Client Registration and Login
-        '/client_login': (context) => const ClientLogin(), // New route for ClientLogin
-        '/worker_login': (context) => const WorkerLogin(),
-        '/client_registration': (context) => const ClientRegistration(),
-        '/worker_registration': (context) => const WorkerRegistration(),
-        '/client_dashboard': (context) => const ClientDashboard(),
-        '/worker_dashboard': (context) => const WorkerDashboard(),
-        '/client_profile': (context) => const ClientProfile(),
-        '/client_find_a_worker': (context) => const ClientFindAWorker(),
-        '/client_active_orders': (context) => const ClientActiveOrders(),
-      },
-    );
+    return ChangeNotifierProvider(
+        create: (context) => ClientDashboardViewModel(),
+        child: MaterialApp(
+          initialRoute: '/',
+          routes: {
+            '/': (context) => const SplashScreen(), // Added const here
+            '/home': (context) => const HomeScreen(), // Added const here
+            '/worker_reg_log': (context) =>
+                const WorkerRegLog(), // Worker Registration and Login
+            '/client_reg_log': (context) =>
+                const ClientRegLog(), // Client Registration and Login
+            '/client_login': (context) =>
+                const ClientLogin(), // New route for ClientLogin
+            '/worker_login': (context) => const WorkerLogin(),
+            '/client_registration': (context) => const ClientRegistration(),
+            '/worker_registration': (context) => const WorkerRegistration(),
+            '/client_dashboard': (context) => const ClientDashboard(),
+            '/worker_dashboard': (context) => const WorkerDashboard(),
+            '/client_profile': (context) => const ClientProfile(),
+            '/client_find_a_worker': (context) => const ClientFindAWorker(),
+            '/client_active_orders': (context) => const ClientActiveOrders(),
+          },
+        ));
   }
 }
