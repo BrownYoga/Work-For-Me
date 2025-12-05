@@ -10,5 +10,5 @@ require (
     go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp v1.26.0
     go.opentelemetry.io/otel/sdk/resource v1.26.0
     go.opentelemetry.io/otel/sdk/trace v1.26.0
-go.opentelemetry.io/otel/semconv/v1.21.0 v1.21.0
+    go.opentelemetry.io/otel/semconv/v1.21.0 v1.21.0
 )
