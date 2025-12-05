@@ -1,0 +1,5 @@
+name: work-for-me
+include:
+  - path: ./docker-compose.backend.yml
+  - path: ./docker-compose.frontend.yml
+  - path: ./docker-compose.observability.yml

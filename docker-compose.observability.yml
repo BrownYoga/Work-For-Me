@@ -1,0 +1,45 @@
+services:
+  otel-collector:
+    image: grafana/alloy:latest
+    command: ["run", "/etc/alloy/config.alloy"]
+    volumes:
+      - ./observability/alloy/config.alloy:/etc/alloy/config.alloy
+    ports:
+      - "4317:4317"
+      - "4318:4318"
+    depends_on:
+      - tempo
+      - loki
+      - prometheus
+
+  grafana:
+    image: grafana/grafana:10.4.2
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    depends_on:
+      - prometheus
+      - tempo
+      - loki
+
+  prometheus:
+    image: prom/prometheus:v2.49.1
+    volumes:
+      - ./observability/prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+
+  tempo:
+    image: grafana/tempo:2.4.1
+    command: ["-config.file=/etc/tempo.yaml"]
+    volumes:
+      - ./observability/tempo.yaml:/etc/tempo.yaml
+    ports:
+      - "3200:3200"
+
+  loki:
+    image: grafana/loki:2.9.6
+    command: ["-config.file=/etc/loki/local-config.yaml"]
+    ports:
+      - "3100:3100"
