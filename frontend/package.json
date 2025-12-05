@@ -7,8 +7,7 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "playwright test",
-    "prepare": "husky install"
+    "e2e": "playwright test"
   },
   "dependencies": {
     "@angular/animations": "^17.3.0",
