@@ -1,0 +1,28 @@
+<div class="min-h-screen flex flex-col">
+  <header class="bg-slate-900 text-white py-6 shadow">
+    <div class="container mx-auto px-4 flex items-center justify-between">
+      <div>
+        <p class="text-sm uppercase tracking-wide text-slate-300">Workers for South Africa</p>
+        <h1 class="text-2xl font-semibold">{{ title }}</h1>
+      </div>
+      <button class="bg-emerald-500 hover:bg-emerald-600 text-white rounded px-4 py-2 font-semibold" (click)="refreshFromApi()">
+        Refresh from API
+      </button>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-8 grid gap-6">
+    <section class="bg-white rounded-lg shadow p-6">
+      <h2 class="text-xl font-semibold mb-2">Available workers</h2>
+      <p class="text-slate-600 mb-4">Search by skill to find the right person for the job.</p>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <article *ngFor="let worker of workers()" class="border border-slate-200 rounded-lg p-4 bg-slate-50">
+          <h3 class="text-lg font-semibold">{{ worker.name }}</h3>
+          <p class="text-slate-600 text-sm">{{ worker.email }}</p>
+          <p class="mt-2 text-sm">Skills: <span class="font-medium">{{ worker.skills.join(', ') }}</span></p>
+          <p class="text-sm text-slate-600">Within {{ worker.geoRadiusKm }} km</p>
+        </article>
+      </div>
+    </section>
+  </main>
+</div>

@@ -1,0 +1,59 @@
+otelcol.receiver.otlp "default" {
+  grpc {
+    endpoint = "0.0.0.0:4317"
+  }
+  http {
+    endpoint = "0.0.0.0:4318"
+  }
+}
+
+otelcol.processor.batch "default" {}
+
+otelcol.exporter.otlp "tempo" {
+  client {
+    endpoint = "tempo:4317"
+    tls { insecure = true }
+  }
+}
+
+otelcol.exporter.prometheus "default" {
+  add_metric_suffixes = false
+  enable_target_info = true
+  resource_attributes_as_labels = true
+  forward_to = [otelcol.receiver.prometheus.default.receiver]
+}
+
+otelcol.receiver.prometheus "default" {
+  receiver {
+    config = <<EOF_PROM
+scrape_configs:
+  - job_name: 'wfm-api'
+    static_configs:
+      - targets: ['api:8080']
+EOF_PROM
+  }
+}
+
+otelcol.exporter.loki "default" {
+  endpoint = "http://loki:3100/loki/api/v1/push"
+}
+
+otelcol.service "default" {
+  pipelines {
+    traces {
+      receivers = [otelcol.receiver.otlp.default]
+      processors = [otelcol.processor.batch.default]
+      exporters = [otelcol.exporter.otlp.tempo]
+    }
+    metrics {
+      receivers = [otelcol.receiver.otlp.default]
+      processors = [otelcol.processor.batch.default]
+      exporters = [otelcol.exporter.prometheus.default]
+    }
+    logs {
+      receivers = [otelcol.receiver.otlp.default]
+      processors = [otelcol.processor.batch.default]
+      exporters = [otelcol.exporter.loki.default]
+    }
+  }
+}
