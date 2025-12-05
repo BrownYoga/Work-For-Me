@@ -1,27 +1,149 @@
-<div class="min-h-screen flex flex-col">
+<div class="min-h-screen flex flex-col bg-slate-50 text-slate-900">
   <header class="bg-slate-900 text-white py-6 shadow">
     <div class="container mx-auto px-4 flex items-center justify-between">
       <div>
         <p class="text-sm uppercase tracking-wide text-slate-300">Workers for South Africa</p>
         <h1 class="text-2xl font-semibold">{{ title }}</h1>
       </div>
-      <button class="bg-emerald-500 hover:bg-emerald-600 text-white rounded px-4 py-2 font-semibold" (click)="refreshFromApi()">
+      <button
+        class="bg-emerald-500 hover:bg-emerald-600 text-white rounded px-4 py-2 font-semibold shadow"
+        (click)="refreshFromApi()"
+      >
         Refresh from API
       </button>
     </div>
   </header>
 
-  <main class="container mx-auto px-4 py-8 grid gap-6">
-    <section class="bg-white rounded-lg shadow p-6">
-      <h2 class="text-xl font-semibold mb-2">Available workers</h2>
-      <p class="text-slate-600 mb-4">Search by skill to find the right person for the job.</p>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-        <article *ngFor="let worker of workers()" class="border border-slate-200 rounded-lg p-4 bg-slate-50">
-          <h3 class="text-lg font-semibold">{{ worker.name }}</h3>
-          <p class="text-slate-600 text-sm">{{ worker.email }}</p>
-          <p class="mt-2 text-sm">Skills: <span class="font-medium">{{ worker.skills.join(', ') }}</span></p>
-          <p class="text-sm text-slate-600">Within {{ worker.geoRadiusKm }} km</p>
-        </article>
+  <main class="container mx-auto px-4 py-10 flex-1 space-y-10">
+    <section class="bg-gradient-to-r from-emerald-600 via-emerald-500 to-emerald-400 text-white rounded-2xl shadow-lg overflow-hidden">
+      <div class="grid md:grid-cols-2 gap-6 p-8 md:p-10 items-center">
+        <div class="space-y-4">
+          <p class="text-sm uppercase tracking-wide text-emerald-50/80">Find skilled workers nearby</p>
+          <h2 class="text-3xl md:text-4xl font-semibold leading-tight">
+            Post a job and connect with vetted workers in minutes.
+          </h2>
+          <p class="text-emerald-50/90 text-lg">
+            Choose the skills you need, set the travel distance, and start a conversation with reliable workers across South
+            Africa.
+          </p>
+          <div class="flex flex-wrap gap-3 pt-2">
+            <button class="bg-white text-emerald-700 font-semibold px-4 py-2 rounded shadow hover:bg-emerald-50">
+              Post a job request
+            </button>
+            <button class="border border-white/70 text-white px-4 py-2 rounded hover:bg-white/10">
+              Browse categories
+            </button>
+          </div>
+        </div>
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 space-y-4 shadow-inner">
+          <div class="flex items-center justify-between">
+            <div class="space-y-1">
+              <p class="text-sm text-emerald-50/70">Popular request</p>
+              <p class="text-lg font-semibold">Bathroom leak repair</p>
+              <p class="text-sm text-emerald-50/80">Cape Town · within 20 km</p>
+            </div>
+            <div class="bg-white text-emerald-700 px-4 py-2 rounded-full text-sm font-semibold">4 matches</div>
+          </div>
+          <div class="grid grid-cols-1 gap-3">
+            <div class="bg-white text-emerald-900 rounded-lg p-4 shadow">
+              <p class="font-semibold">Lesedi Dlamini</p>
+              <p class="text-sm text-emerald-800">Tiling · Painting · Waterproofing</p>
+              <p class="text-xs text-emerald-700 mt-1">Replies in under 15 minutes</p>
+            </div>
+            <div class="bg-white text-emerald-900 rounded-lg p-4 shadow">
+              <p class="font-semibold">Lungi Maseko</p>
+              <p class="text-sm text-emerald-800">Plumbing · Emergency call-outs</p>
+              <p class="text-xs text-emerald-700 mt-1">Available today</p>
+            </div>
+          </div>
+          <p class="text-xs text-emerald-50/70">Tap "Refresh from API" to pull live data when the backend is ready.</p>
+        </div>
+      </div>
+      <div class="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-emerald-300/50 bg-emerald-700/50 text-sm">
+        <div *ngFor="let stat of highlights" class="p-4 md:p-6 text-center">
+          <p class="text-2xl font-semibold">{{ stat.value }}</p>
+          <p class="uppercase tracking-wide text-emerald-50/80">{{ stat.label }}</p>
+          <p class="text-emerald-50/80">{{ stat.helper }}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid lg:grid-cols-[1.3fr_1fr] gap-6 items-start">
+      <div class="bg-white rounded-2xl shadow p-6 space-y-4">
+        <div class="flex items-center justify-between">
+          <div>
+            <h3 class="text-xl font-semibold">Available workers</h3>
+            <p class="text-slate-600">Search by skill to find the right person for the job.</p>
+          </div>
+          <span class="text-sm bg-slate-100 text-slate-700 px-3 py-1 rounded-full">Updated daily</span>
+        </div>
+        <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-4">
+          <article *ngFor="let worker of workers()" class="border border-slate-200 rounded-lg p-4 bg-slate-50">
+            <h4 class="text-lg font-semibold">{{ worker.name }}</h4>
+            <p class="text-slate-600 text-sm">{{ worker.email }}</p>
+            <p class="mt-2 text-sm">Skills: <span class="font-medium">{{ worker.skills.join(', ') }}</span></p>
+            <p class="text-sm text-slate-600">Within {{ worker.geoRadiusKm }} km</p>
+          </article>
+        </div>
+        <div class="bg-slate-100 text-slate-700 rounded-lg p-4 text-sm flex items-center gap-2">
+          <span class="font-semibold text-slate-900">Tip:</span> Ask for verification on arrival to keep every booking safe.
+        </div>
+      </div>
+
+      <div class="space-y-4">
+        <div class="bg-white rounded-2xl shadow p-6 space-y-3">
+          <h3 class="text-lg font-semibold">Jump into a category</h3>
+          <p class="text-sm text-slate-600">Use quick filters to see the right skills without endless scrolling.</p>
+          <div class="space-y-3">
+            <div *ngFor="let filter of quickFilters" class="border border-slate-200 rounded-lg p-4 bg-slate-50">
+              <div class="flex items-start justify-between gap-3">
+                <div>
+                  <p class="font-semibold">{{ filter.title }}</p>
+                  <p class="text-sm text-slate-600">{{ filter.description }}</p>
+                  <p class="text-sm mt-2 text-slate-700">
+                    Top skills:
+                    <span class="font-medium">{{ filter.skills.join(' · ') }}</span>
+                  </p>
+                </div>
+                <button class="text-emerald-700 font-semibold text-sm">Open</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow p-6 space-y-3">
+          <h3 class="text-lg font-semibold">How it works</h3>
+          <ol class="space-y-3">
+            <li *ngFor="let step of process; let i = index" class="flex gap-3">
+              <span class="h-8 w-8 rounded-full bg-emerald-100 text-emerald-700 font-semibold flex items-center justify-center">{{
+                i + 1
+              }}</span>
+              <div>
+                <p class="font-semibold">{{ step.title }}</p>
+                <p class="text-sm text-slate-600">{{ step.detail }}</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid md:grid-cols-3 gap-6">
+      <div class="md:col-span-2 bg-white rounded-2xl shadow p-6 space-y-3">
+        <p class="text-sm uppercase tracking-wide text-emerald-700 font-semibold">Community love</p>
+        <p class="text-xl font-semibold">Trusted by clients across South Africa</p>
+        <blockquote class="border-l-4 border-emerald-500 pl-4 text-slate-700 text-lg leading-relaxed">
+          “{{ testimonial.quote }}”
+        </blockquote>
+        <p class="text-sm text-slate-600">{{ testimonial.name }} · {{ testimonial.role }}</p>
+      </div>
+      <div class="bg-slate-900 text-white rounded-2xl shadow p-6 space-y-3">
+        <p class="text-sm uppercase tracking-wide text-slate-300">Need a hand?</p>
+        <p class="text-xl font-semibold">Talk to a support specialist</p>
+        <p class="text-slate-200">
+          We are happy to help with quotes, special requests or bulk jobs. Leave a message and we will call you back.
+        </p>
+        <button class="bg-white text-slate-900 font-semibold px-4 py-2 rounded shadow hover:bg-slate-100">Request a call</button>
       </div>
     </section>
   </main>
