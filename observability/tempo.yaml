@@ -1,0 +1,17 @@
+server:
+  http_listen_port: 3200
+
+compactor:
+  compaction:
+    compaction_window: 1h
+    max_compaction_objects: 100000
+    block_retention: 12h
+
+storage:
+  trace:
+    backend: local
+    wal:
+      enabled: true
+      path: /var/tempo/wal
+    local:
+      path: /var/tempo/traces
