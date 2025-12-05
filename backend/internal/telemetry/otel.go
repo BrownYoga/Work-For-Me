@@ -6,17 +6,13 @@ import (
 	"net/http"
 
 	"go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp"
-	"go.opentelemetry.io/otel/attribute"
 	"go.opentelemetry.io/otel"
+	"go.opentelemetry.io/otel/attribute"
 	"go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp"
 	"go.opentelemetry.io/otel/sdk/resource"
 	sdktrace "go.opentelemetry.io/otel/sdk/trace"
 	semconv "go.opentelemetry.io/otel/semconv/v1.21.0"
 )
-
-)
-
-const schemaURL = "https://opentelemetry.io/schemas/1.21.0"
 
 // InitTracer configures a basic OTLP HTTP exporter and tracer provider.
 func InitTracer(ctx context.Context, serviceName, endpoint string) func(context.Context) error {
@@ -31,7 +27,6 @@ func InitTracer(ctx context.Context, serviceName, endpoint string) func(context.
 		sdktrace.WithResource(resource.NewWithAttributes(
 			semconv.SchemaURL,
 			semconv.ServiceNameKey.String(serviceName),
-			schemaURL,
 			attribute.String("service.name", serviceName),
 		)),
 	)
