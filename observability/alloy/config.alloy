@@ -17,20 +17,18 @@ otelcol.exporter.otlp "tempo" {
 }
 
 otelcol.exporter.prometheus "default" {
+  endpoint = "0.0.0.0:8888"
   add_metric_suffixes = false
   enable_target_info = true
   resource_attributes_as_labels = true
-  forward_to = [otelcol.receiver.prometheus.default.receiver]
 }
 
 otelcol.receiver.prometheus "default" {
   receiver {
-    config = <<EOF_PROM
-scrape_configs:
-  - job_name: 'wfm-api'
-    static_configs:
-      - targets: ['api:8080']
-EOF_PROM
+    config = "scrape_configs:\n"
+           + "  - job_name: \"wfm-api\"\n"
+           + "    static_configs:\n"
+           + "      - targets: [\"api:8080\"]\n"
   }
 }
 
@@ -46,7 +44,7 @@ otelcol.service "default" {
       exporters = [otelcol.exporter.otlp.tempo]
     }
     metrics {
-      receivers = [otelcol.receiver.otlp.default]
+      receivers = [otelcol.receiver.otlp.default, otelcol.receiver.prometheus.default]
       processors = [otelcol.processor.batch.default]
       exporters = [otelcol.exporter.prometheus.default]
     }
